@@ -42,4 +42,9 @@ class Lecturer extends Model
         return 'img/default-user.png';
     }
 
+    public function thesisTrial()
+    {
+        return $this->belongsToMany(ThesisTrial::class, 'thesis_examiners', 'lecturer_id', 'thesis_trial_id');
+    }
+
 }

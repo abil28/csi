@@ -38,4 +38,14 @@ class Student extends Model
         }
         return 'img/default-user.png';
     }
+
+    public function theses()
+    {
+        return $this->hasOne(Theses::class);
+    }
+
+    // public function theses()
+    // {
+    //     return $this->theseses()->where('status', '=', 1);
+    // }
 }

@@ -23,7 +23,7 @@
 
                         {{-- CARD HEADER--}}
                         <div class="card-header">
-                            <i class="fa fa-edit"></i> <strong>Tambah Mahasiswa</strong>
+                          <!--   <i class="fa fa-edit"></i> <strong>Tambah Mahasiswa</strong> -->
                         </div>
 
                         {{-- CARD BODY--}}

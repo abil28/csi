@@ -37,6 +37,11 @@
                 </ul>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('sidang.index') }}">
+                    <i class="nav-icon icon-graduation"></i>Sidang
+                </a>
+            </li>
 
         </ul>
     </nav>

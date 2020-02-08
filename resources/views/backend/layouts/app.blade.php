@@ -88,6 +88,19 @@
 <script src="{{ asset('js/vendor.js') }}"></script>
 <script src="{{ asset('js/backend.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#file_report").hide();
+        $("#editfile").click(function(e){
+            $("#file_report").click();
+            // $("#form_file").submit();
+            $("#file_report").change(function(e){
+                $("#form_file").submit();
+            });
+        });
+    });
+</script>
 @stack('after-scripts')
 
 @isset(Auth::user()->id)

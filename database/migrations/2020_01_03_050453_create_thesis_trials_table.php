@@ -16,6 +16,7 @@ class CreateThesisTrialsTable extends Migration
         Schema::create('thesis_trials', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('thesis_seminar_id');
+            $table->string('file_report');
             $table->integer('status')->default(0);
             $table->timestamp('registered_at');
             $table->date('trial_at')->nullable();
