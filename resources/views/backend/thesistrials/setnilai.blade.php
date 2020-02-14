@@ -26,41 +26,48 @@
                     <form action="{{ route('sidang.update') }}" method="post">
                         @csrf
                         @method('patch')
-                        <table width="100%">
+                          <style type="text/css">
+                                .jarak, tr, td{
+                                    padding-bottom: 12px;
+                                }
+                            </style>
+                        <table width="100%" class="jarak">
                             <tr>
-                                <td width="9%">Nama </td>
-                                <td width="1%">:</td>
+                                <td width="9%"><b>Nama</b></td>
+                                <td width="2%">:</td>
                                 <td>{{ $thesistrial->theses->student->name }}</td>
                             </tr>
                             <tr>
-                                <td width="9%">NIM </td>
-                                <td width="1%">:</td>
+                                <td width="9%"><b>NIM</b> </td>
+                                <td width="2%">:</td>
                                 <td>{{ $thesistrial->theses->student->nim }}</td>
                             </tr>
                             <tr>
-                                <td width="9%">Judul </td>
-                                <td width="1%">:</td>
+                                <td width="9%"><b>Judul</b> </td>
+                                <td width="2%">:</td>
                                 <td>{{ $thesistrial->theses->title }}</td>
                             </tr>
                             <tr>
-                                <td width="9%">Nilai </td>
-                                <td width="1%">:</td>
+                                <td width="9%"><b>Nilai</b> </td>
+                                <td width="2%">:</td>
                                 <td>
                                     <div class="row">
                                         <div class="col-1"><input type="text" name="score" id="score" pattern="[0-9]+" class="form-control" value="{{ $thesistrial->score }}"></div>
                                         <div class="col-1"></div>
                                         <div class="col-3 mt-2">
-                                            Grade : <span id="grade">{{ $thesistrial->grade }}</span>
+                                           <b> Grade :</b> <span id="grade">{{ $thesistrial->grade }}</span>
                                         </div>
                                     </div>
                                 </td>
                             </tr>
                         </table>
+                        <div class="card-footer">
                         <br>
                         <input type="hidden" name="grade" id="grade2" value="{{ $thesistrial->grade }}">
                         <input type="hidden" name="id" value="{{ Request::segment(3) }}">
                         <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Save</button>
                     </form>
+                         </div>
                 </div>
             </div>
         </div>

@@ -26,36 +26,32 @@
                     @if(Auth::user()->type==2)
                         @if(Auth::user()->student->theses != null)
                             @if(Auth::user()->student->theses->thesisTrial == null)
-                             Anda belum mengajukan sidang.  
-                            <div class="row justify-content-end">
-                                <div class="col-md-6 justify-content-end">
-                                    <div class="row justify-content-end">
-                                            <a class="btn btn-primary mr-4" href="{{ route('sidang.create') }}"><i class="fa fa-file"></i> Ajukan</a>
-                                    </div>
-                                </div>
-                            </div>                 
-                            @endif
-
-                            @if(Auth::user()->student->theses->thesisTrial != null)
-                            <table width="100%">
+                             Anda belum mengajukan sidang.
+                            @elseif(Auth::user()->student->theses->thesisTrial != null)
+                            <style type="text/css">
+                                .jarak, tr, td{
+                                    padding-bottom: 12px;
+                                }
+                            </style>
+                            <table width="100%" class="jarak">
                                 <tr>
-                                    <td width="9%">Nama </td>
-                                    <td width="1%">:</td>
+                                    <td width="9%"><b>Nama<b> </td>
+                                    <td width="2%">:</td>
                                     <td>{{ Auth::user()->student->name }}</td>
                                 </tr>
                                 <tr>
-                                    <td width="9%">NIM </td>
-                                    <td width="1%">:</td>
+                                    <td width="9%"><b>NIM</b> </td>
+                                    <td width="2%">:</td>
                                     <td>{{ Auth::user()->student->nim }}</td>
                                 </tr>
                                 <tr>
-                                    <td width="9%">Judul </td>
-                                    <td width="1%">:</td>
+                                    <td width="9%"><b>Judul</b> </td>
+                                    <td width="2%">:</td>
                                     <td>{{ Auth::user()->student->theses->title }}</td>
                                 </tr>
                                 <tr>
-                                    <td width="9%">Status </td>
-                                    <td width="1%">:</td>
+                                    <td width="9%"><b>Status</b> </td>
+                                    <td width="2%">:</td>
                                     <td>
                                         @if(Auth::user()->student->theses->thesisTrial->status == 0)
                                             Sedang Diajukan
@@ -69,23 +65,7 @@
                                     </td>
                                 </tr>
                             </table>
-                            <div class="text-right">
-                                <a class="btn btn-success" href="{{ route('sidang.detail' ) }}"><i class="fa fa-eye"></i> Detail</a>
-                                @if(Auth::user()->student->theses->thesisTrial->status == 0)
-                                <form action="{{ route('sidang.update') }}" method="post" class="form-inline btn" id="form_file" enctype="multipart/form-data">
-                                    @csrf
-                                    @method('patch')
-                                    <input type="hidden" name="id" value="{{ Auth::user()->student->theses->thesisTrial->id }}">
-                                    <input type="file" name="file_report" id="file_report">
-                                </form>
-                                <button class="btn btn-warning mr-2" id="editfile"><i class="fa fa-edit"></i> Edit</button>
-                                <form method="post" action="{{ route('sidang.delete', Auth::user()->student->theses->thesisTrial->id) }}" class="form-inline btn">
-                                    @csrf
-                                    @method('delete')
-                                    <button class="btn btn-danger mr-2" type="submit" onclick="return confirm('Yakin Mau Hapus Nih?')"><i class="fa fa-trash"></i> Cancel</button>
-                                </form>
-                                @endif
-                            </div>
+                            
                             @endif
 
                             <div class="row justify-content-end">
@@ -101,8 +81,7 @@
                         @else
                             Anda Belum Mengajukan TA
                         @endif
-                    @else
-                        @if(Auth::user()->type==3)
+                    @elseif(Auth::user()->type==3)
                          <table class="table table-striped">
                             <thead>
                                 <tr>
@@ -129,11 +108,46 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        @endif
                     @endif
 
                 </div><!--card-body-->
 
+                <div class="card-footer">
+                    @if(Auth::user()->type==2)
+                        @if(Auth::user()->student->theses->thesisTrial == null)
+                        <div class="row justify-content-end">
+                            <div class="col-md-6 justify-content-end">
+                                <div class="row justify-content-end">
+                                        <a class="btn btn-primary mr-4" href="{{ route('sidang.create') }}"><i class="fa fa-file"></i> Ajukan</a>
+                                </div>
+                            </div>
+                        </div>
+                        @elseif(Auth::user()->student->theses->thesisTrial != null)
+                            <div class="row">
+                                <div class="col-md-8">
+                                    
+                                </div>
+                                <div class="col-md-4">
+                                    <a class="btn btn-success" href="{{ route('sidang.detail' ) }}"><i class="fa fa-eye"></i> Detail</a>
+                                    @if(Auth::user()->student->theses->thesisTrial->status == 0)
+                                    <form action="{{ route('sidang.update') }}" method="post" class="form-inline btn" id="form_file" enctype="multipart/form-data">
+                                        @csrf
+                                        @method('patch')
+                                        <input type="hidden" name="id" value="{{ Auth::user()->student->theses->thesisTrial->id }}">
+                                        <input type="file" name="file_report" id="file_report">
+                                    </form>
+                                    <button class="btn btn-warning mr-2" id="editfile"><i class="fa fa-edit"></i> Edit</button>
+                                    <form method="post" action="{{ route('sidang.delete', Auth::user()->student->theses->thesisTrial->id) }}" class="form-inline btn">
+                                        @csrf
+                                        @method('delete')
+                                        <button class="btn btn-danger mr-2" type="submit" onclick="return confirm('Yakin Mau Hapus Nih?')"><i class="fa fa-trash"></i> Cancel</button>
+                                    </form>
+                                    @endif
+                                </div>
+                            </div>
+                        @endif
+                    @endif
+                </div>
 
             </div><!--card-->
         </div><!--col-->

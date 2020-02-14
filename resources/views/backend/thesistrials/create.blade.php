@@ -27,30 +27,35 @@
 
                         {{-- CARD BODY--}}
                         <div class="card-body">
-                            <table width="100%">
+                            <style type="text/css">
+                                .jarak, tr, td{
+                                    padding-bottom: 10px;
+                                }
+                            </style>
+                            <table width="100%" class="jarak">
                                 <tr>
-                                    <td width="9%">Nama </td>
-                                    <td width="1%">:</td>
+                                    <td width="9%"><b>Nama</b> </td>
+                                    <td width="2%">:</td>
                                     <td>{{ Auth::user()->student->name }}</td>
                                 </tr>
                                 <tr>
-                                    <td width="9%">NIM </td>
-                                    <td width="1%">:</td>
+                                    <td width="9%"><b>NIM</b> </td>
+                                    <td width="2%">:</td>
                                     <td>{{ Auth::user()->student->nim }}</td>
                                 </tr>
                                 <tr>
-                                    <td width="9%">Judul </td>
-                                    <td width="1%">:</td>
+                                    <td width="9%"><b>Judul</b> </td>
+                                    <td width="2%">:</td>
                                     <td>{{ Auth::user()->student->theses->title }}</td>
                                 </tr>
                                 <tr>
-                                    <td width="9%">File </td>
-                                    <td width="1%">:</td>
+                                    <td width="9%"><b>File</b> </td>
+                                    <td width="2%">:</td>
                                     <td>
+                                    @include('backend.thesistrials._form')
                                     </td>
                                 </tr>
                             </table>
-                            @include('backend.thesistrials._form')           
                         </div>
 
                         {{--CARD FOOTER--}}

@@ -36,25 +36,30 @@
                     @endif
 
                     @if(Auth::user()->student->theses->thesisTrial != null)
-                    <table width="100%">
+                     <style type="text/css">
+                                .jarak, tr, td{
+                                    padding-bottom: 14px;
+                                }
+                            </style>
+                    <table width="100%" class="jarak">
                         <tr>
                             <td width="14%"><b>Nama</b> </td>
-                            <td width="1%">:</td>
+                            <td width="2%">:</td>
                             <td>{{ Auth::user()->student->name }}</td>
                         </tr>
                         <tr>
-                            <td width="14%">NIM </td>
-                            <td width="1%">:</td>
+                            <td width="14%"><b>NIM</b></td>
+                            <td width="2%">:</td>
                             <td>{{ Auth::user()->student->nim }}</td>
                         </tr>
                         <tr>
-                            <td width="14%">Judul </td>
-                            <td width="1%">:</td>
+                            <td width="14%"><b>Judul</b> </td>
+                            <td width="2%">:</td>
                             <td>{{ Auth::user()->student->theses->title }}</td>
                         </tr>
                         <tr>
-                            <td width="14%">Status </td>
-                            <td width="1%">:</td>
+                            <td width="14%"><b>Status</b> </td>
+                            <td width="2%">:</td>
                             <td>
                                 @if(Auth::user()->student->theses->thesisTrial->status == 0)
                                     Submit
@@ -68,37 +73,37 @@
                             </td>
 
                         </tr>
-                             <td width="14%">Tanggal Pengajuan </td>
-                            <td width="1%">:</td>
+                             <td width="14%"><b>Tanggal Pengajuan</b> </td>
+                            <td width="2%">:</td>
                             <td>{{ Auth::user()->student->theses->thesisTrial->registered_at }}</td>
                         </tr>
                         <tr>
-                            <td width="14%">Tanggal sidang </td>
-                            <td width="1%">:</td>
+                            <td width="14%"><b>Tanggal sidang </b></td>
+                            <td width="2%">:</td>
                             <td>{{ Auth::user()->student->theses->thesisTrial->trial_at }}</td>
                         </tr>
                         <tr>
-                            <td width="14%">Mulai </td>
-                            <td width="1%">:</td>
+                            <td width="14%"><b>Mulai</b></td>
+                            <td width="2%">:</td>
                             <td>{{ Auth::user()->student->theses->thesisTrial->start_at }}</td>
                         </tr>
                         <tr>
-                            <td width="14%">Selesai </td>
-                            <td width="1%">:</td>
+                            <td width="14%"><b>Selesai</b> </td>
+                            <td width="2%">:</td>
                             <td>{{ Auth::user()->student->theses->thesisTrial->start_at }}</td>
                                  </tr>
                         <tr>
-                            <td width="14%">Ruangan </td>
-                            <td width="1%">:</td>
+                            <td width="14%"><b>Ruangan</b> </td>
+                            <td width="2%">:</td>
                             <td>{{ Auth::user()->student->theses->thesisTrial->room_id }}</td>
                         </tr>
                         <tr>
-                            <td width="14%">Nilai </td>
-                            <td width="1%">:</td>
+                            <td width="14%"><b>Nilai</b> </td>
+                            <td width="2%">:</td>
                              <td>{{ Auth::user()->student->theses->thesisTrial->score }}</td>
                         <tr>
-                            <td width="14%">Grade </td>
-                            <td width="1%">:</td>
+                            <td width="14%"><b>Grade</b> </td>
+                            <td width="2%">:</td>
                             <td>{{ Auth::user()->student->theses->thesisTrial->grade }}</td>
                         </tr>
                     </table>
