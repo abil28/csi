@@ -51,7 +51,7 @@
                                 <tr>
                                     <td width="9%"><b>File</b> </td>
                                     <td width="2%">:</td>
-                                    <td>
+                                    <td valign="baseline">
                                     @include('backend.thesistrials._form')
                                     </td>
                                 </tr>
