@@ -47,4 +47,10 @@ class Lecturer extends Model
         return $this->belongsToMany(ThesisTrial::class, 'thesis_examiners', 'lecturer_id', 'thesis_trial_id');
     }
 
+
+    public function thesis()
+    {
+        return $this->belongsToMany(Thesis::class, 'thesis_supervisors', 'lecturer_id', 'thesis_id');
+    }
+
 }

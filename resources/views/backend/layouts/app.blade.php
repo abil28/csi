@@ -10,6 +10,79 @@
 
     {{--    Styles--}}
     @stack('before-styles')
+    <style>
+        .buttonAncak{
+            align-items: center;
+            border-radius: 500px;
+            bottom: 16px;
+            cursor: pointer;
+            display: flex;
+            height: 32px;
+            justify-content: center;
+            min-width: 32px;
+            position: fixed;
+            right: 16px;
+            width: fit-content;
+            line-height: 16px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 1px 2px rgba(0, 0, 0, .23);
+        }
+        /* Popup container */
+        .popup {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+        }
+
+        /* The actual popup (appears on top) */
+        .popup .popuptext {
+        visibility: hidden;
+        width: 160px;
+        background-color: #555;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 8px 0;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%;
+        left: 50%;
+        margin-left: -80px;
+        }
+
+        /* Popup arrow */
+        .popup .popuptext::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #555 transparent transparent transparent;
+        }
+
+        /* Toggle this class when clicking on the popup container (hide and show the popup) */
+        .popup .show {
+        visibility: visible;
+        -webkit-animation: fadeIn 1s;
+        animation: fadeIn 1s
+        }
+
+        /* Add animation (fade in the popup) */
+        @-webkit-keyframes fadeIn {
+        from {opacity: 0;}
+        to {opacity: 1;}
+        }
+
+        @keyframes fadeIn {
+        from {opacity: 0;}
+        to {opacity:1 ;}
+        }
+    </style>
+    <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.css"/> -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/se-2.2.13/dt-1.10.20/datatables.min.css"/>
+
     <link href="{{ mix('css/backend.css') }}" rel="stylesheet" >
     @stack('after-styles')
 </head>
@@ -87,7 +160,9 @@
 <script src="{{ asset('js/manifest.js') }}"></script>
 <script src="{{ asset('js/vendor.js') }}"></script>
 <script src="{{ asset('js/backend.js') }}"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
@@ -101,6 +176,11 @@
         });
     });
 </script>
+
+<!-- <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script> -->
+<!-- <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.js"></script> -->
+<script type="text/javascript" src="https://cdn.datatables.net/v/se-2.2.13/dt-1.10.20/datatables.min.js"></script>
+
 @stack('after-scripts')
 
 @isset(Auth::user()->id)
@@ -109,5 +189,21 @@
 @yield('javascript')
 
 </body>
-
+<style>
+    .buttonancak{
+        align-items: center;
+        border-radius: 500px;
+        bottom: 16px;
+        cursor: pointer;
+        display: flex;
+        height: 64px;
+        justify-content: center;
+        min-width: 64px;
+        position: fixed;
+        right: 16px;
+        width: fit-content;
+        color: white;
+        font-size: 32px;
+    }
+</style>
 </html>

@@ -18,6 +18,11 @@ function cui_toolbar_btn($url, $icon, $text = null)
     return '<a class="btn" href="'.$url.'"> <i class="'.$icon.'"></i> &nbsp;'.$text.'</a>';
 }
 
+function buttonModal($target, $icon, $text = null)
+{
+    return "<button class='btn' data-toggle='modal' data-target='#$target'><i class='$icon'></i>&nbsp $text</button>";
+}
+
 function cui_breadcrumb($levels)
 {
     $results = '';

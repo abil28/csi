@@ -38,7 +38,11 @@
 
             <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
                aria-expanded="false">
+               @if(Auth::user()->type == 2 && Auth::user()->student->photo)
+                <img src="{{ url('/images')}}/{{ Auth::user()->student->photo }}" style="" class="img-avatar" width="35" heigth="35" alt="{{ Auth::user()->email }}">
+               @else
                 <img src="{{ Avatar::create(Auth::user()->email)->toBase64() }}" class="img-avatar" alt="{{ Auth::user()->email }}">
+               @endif
                 <span class="d-md-down-none">{{ optional(Auth::user()->pegawai)->nama }}</span>
             </a>
 
@@ -46,6 +50,9 @@
                 <div class="dropdown-header text-center">
                     <strong>Personal</strong>
                 </div>
+                <a class="dropdown-item" href="{{ route('profile.show') }}">
+                    <i class="fa fa-pencil"></i> Edit Profil
+                </a>
                 <a class="dropdown-item" href="{{ route('logout') }}"
                    onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                     <i class="fa fa-lock"></i> Logout

@@ -14,6 +14,7 @@ class Student extends Model
         'photo' => 'file|image'
     ];
 
+    protected $table = 'students';
     protected $guarded = [];
     protected $dates = ['birthdate'];
     public $incrementing = false;
@@ -44,8 +45,9 @@ class Student extends Model
         return $this->hasOne(Theses::class);
     }
 
-    // public function theses()
-    // {
-    //     return $this->theseses()->where('status', '=', 1);
-    // }
+    public function thesis()
+    {
+        return $this->hasOne(Thesis::class, 'student_id');
+    }
+
 }

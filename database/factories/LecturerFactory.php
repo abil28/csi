@@ -15,7 +15,7 @@ $factory->define(App\Models\Lecturer::class, function (Faker $faker) {
         'nik' => $faker->numerify('#############'),
         'name' => $faker->name,
         'nidn' => $faker->numerify('##########'),
-        'birthdate' => $faker->date(),
+        'birthday' => $faker->date(),
         'birthplace' => $faker->city,
         'phone' => $faker->phoneNumber,
     ];
